@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>น้องช้างนักคิดแก้ปัญหา - ช่วยน้องช้างปลูกดอกไม้แสนสวย</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Thai educational kid-friendly style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;600;700&family=Prompt:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Prompt', 'Mali', sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* Animated playful background with sky & garden gradient */
+        body {
+            background: linear-gradient(180deg, #E0F2FE 0%, #FEF3C7 45%, #DCFCE7 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .font-mali {
+            font-family: 'Mali', cursive, sans-serif;
+        }
+
+        /* Glassmorphism & Soft modern cards */
+        .card-cream {
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(10px);
+            border: 3px solid #FDE047;
+            box-shadow: 0 20px 35px -10px rgba(217, 119, 6, 0.15), 0 0 15px rgba(254, 240, 138, 0.5);
+        }
+
+        /* Shiny 3D Kid-friendly Buttons */
+        .btn-amber {
+            background: linear-gradient(180deg, #F59E0B 0%, #D97706 100%);
+            border-bottom: 5px solid #92400E;
+            color: #FFFFFF;
+            box-shadow: 0 8px 15px rgba(217, 119, 6, 0.3);
+            transition: all 0.15s ease-in-out;
+        }
+        .btn-amber:hover {
+            background: linear-gradient(180deg, #FBBF24 0%, #D97706 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(217, 119, 6, 0.4);
+        }
+        .btn-amber:active {
+            transform: translateY(3px);
+            border-bottom-width: 2px;
+            box-shadow: 0 4px 8px rgba(217, 119, 6, 0.2);
+        }
+
+        .btn-emerald {
+            background: linear-gradient(180deg, #10B981 0%, #047857 100%);
+            border-bottom: 5px solid #064E3B;
+            color: #FFFFFF;
+            box-shadow: 0 8px 15px rgba(16, 185, 129, 0.3);
+            transition: all 0.15s ease-in-out;
+        }
+        .btn-emerald:hover {
+            background: linear-gradient(180deg, #34D399 0%, #047857 100%);
+            transform: translateY(-2px);
+        }
+        .btn-emerald:active {
+            transform: translateY(3px);
+            border-bottom-width: 2px;
+        }
+
+        /* Background Floating Cloud Animations */
+        @keyframes floatCloud {
+            0% { transform: translateX(-10%); }
+            50% { transform: translateX(10%); }
+            100% { transform: translateX(-10%); }
+        }
+
+        .animate-cloud-slow {
+            animation: floatCloud 25s ease-in-out infinite;
+        }
+        .animate-cloud-fast {
+            animation: floatCloud 16s ease-in-out infinite reverse;
+        }
+
+        /* Floating mascot animation */
+        @keyframes floatMascot {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1.5deg); }
+        }
+
+        .animate-mascot {
+            animation: floatMascot 3.5s ease-in-out infinite;
+        }
+
+        /* Bounce for modal feedback */
+        @keyframes popIn {
+            0% { transform: scale(0.85); opacity: 0; }
+            70% { transform: scale(1.05); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .animate-pop {
+            animation: popIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        /* Print styling for result summary */
+        @media print {
+            header, button, .no-print, .bg-decor {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+            }
+            .print-area {
+                border: none !important;
+                box-shadow: none !important;
+                width: 100% !important;
+            }
+        }
+    </style>
+</head>
+<body class="text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Background Decorative SVG Landscape Elements -->
+    <div class="bg-decor absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <!-- Floating Sun Rays -->
+        <div class="absolute -top-12 -left-12 w-64 h-64 bg-amber-200/40 rounded-full blur-3xl"></div>
+        <div class="absolute top-20 right-10 w-72 h-72 bg-sky-200/40 rounded-full blur-3xl"></div>
+
+        <!-- Animated Clouds -->
+        <svg class="animate-cloud-slow absolute top-6 left-5 w-32 md:w-48 opacity-80" viewBox="0 0 100 60">
+            <path fill="#FFFFFF" d="M 20 40 A 15 15 0 0 1 35 20 A 20 20 0 0 1 70 20 A 15 15 0 0 1 85 40 Z"/>
+        </svg>
+        <svg class="animate-cloud-fast absolute top-16 right-8 w-40 md:w-56 opacity-75" viewBox="0 0 100 60">
+            <path fill="#FFFFFF" d="M 15 45 A 18 18 0 0 1 35 22 A 22 22 0 0 1 75 25 A 18 18 0 0 1 90 45 Z"/>
+        </svg>
+
+        <!-- Decorative Flowers at bottom -->
+        <div class="absolute bottom-2 left-6 text-2xl opacity-60">🌻</div>
+        <div class="absolute bottom-4 left-24 text-xl opacity-50">🌷</div>
+        <div class="absolute bottom-2 right-8 text-3xl opacity-60">🌼</div>
+        <div class="absolute bottom-5 right-28 text-xl opacity-50">🌱</div>
+    </div>
+
+    <header class="bg-white/85 backdrop-blur-md border-b-2 border-amber-200 sticky top-0 z-40 px-4 py-2.5 shadow-sm">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <!-- Brand / Logo -->
+            <div class="flex items-center gap-2.5 cursor-pointer" onclick="goToStartScreen()">
+                <div class="w-10 h-10 bg-amber-100 rounded-2xl flex items-center justify-center text-2xl border-2 border-amber-300 shadow-sm transform hover:scale-105 transition">
+                    🐘
+                </div>
+                <div>
+                    <h1 class="text-base md:text-lg font-extrabold text-amber-950 leading-tight">น้องช้างนักคิดแก้ปัญหา</h1>
+                    <p class="text-[11px] text-amber-800 font-bold">วิทยาการคำนวณ ป.2 (ว 4.2 ป.2/1)</p>
+                </div>
+            </div>
+
+            <!-- Top Action Navigation Buttons -->
+            <div class="flex items-center gap-1.5 md:gap-2">
+                <!-- Live Score Indicator Badge -->
+                <div class="px-3 py-1.5 bg-amber-500 text-white rounded-2xl border-2 border-amber-600 font-extrabold text-xs flex items-center gap-1 shadow-sm">
+                    <span>⭐ คะแนน:</span>
+                    <span id="headerScore" class="text-yellow-100 font-black text-sm">0</span>
+                </div>
+
+                <!-- Sound toggle -->
+                <button id="soundBtn" onclick="toggleSound()" class="px-3 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-900 rounded-2xl border-2 border-amber-200 font-bold text-xs flex items-center gap-1 transition shadow-sm">
+                    <span id="soundIcon">🔊</span>
+                    <span class="hidden sm:inline" id="soundText">เปิดเสียง</span>
+                </button>
+
+                <!-- Instructions / Rubric -->
+                <button onclick="openModal('modal-instructions')" class="px-3 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-900 rounded-2xl border-2 border-amber-200 font-bold text-xs flex items-center gap-1 transition shadow-sm">
+                    <span>📖</span>
+                    <span class="hidden sm:inline">วิธีเล่น & เกณฑ์</span>
+                </button>
+
+                <!-- Home button -->
+                <button onclick="goToStartScreen()" class="px-3 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-900 rounded-2xl border-2 border-amber-200 font-bold text-xs flex items-center gap-1 transition shadow-sm">
+                    <span>🏠</span>
+                    <span class="hidden sm:inline">หน้าหลัก</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-3xl w-full mx-auto p-4 flex flex-col justify-center relative z-10">
+
+        <!-- ================= SCREEN 1: LANDING & REGISTRATION ================= -->
+        <section id="screen-start" class="screen-block flex flex-col items-center justify-center py-2 text-center">
+            
+            <!-- Elephant Gardener Mascot SVG Illustration -->
+            <div class="relative mb-3 animate-mascot">
+                <div class="w-36 h-36 sm:w-44 sm:h-44 bg-gradient-to-tr from-amber-200 via-amber-100 to-sky-100 rounded-full flex items-center justify-center p-3 border-4 border-amber-300 shadow-xl">
+                    <svg class="w-32 h-32 sm:w-36 sm:h-36" viewBox="0 0 200 200">
+                        <!-- Elephant Ears -->
+                        <circle cx="45" cy="90" r="32" fill="#94A3B8"/>
+                        <circle cx="45" cy="90" r="20" fill="#F472B6" opacity="0.6"/>
+                        <circle cx="155" cy="90" r="32" fill="#94A3B8"/>
+                        <circle cx="155" cy="90" r="20" fill="#F472B6" opacity="0.6"/>
+                        <!-- Head -->
+                        <circle cx="100" cy="95" r="55" fill="#CBD5E1"/>
+                        <!-- Gardening Hat -->
+                        <path d="M 60 60 Q 100 40 140 60 Q 155 60 150 72 Q 100 68 50 72 Q 45 60 60 60 Z" fill="#F59E0B"/>
+                        <path d="M 75 58 Q 100 35 125 58" fill="#FBBF24"/>
+                        <!-- Flower on Hat -->
+                        <circle cx="100" cy="45" r="7" fill="#F43F5E"/>
+                        <circle cx="100" cy="45" r="3" fill="#FEF08A"/>
+                        <!-- Trunk -->
+                        <path d="M 100 95 Q 100 135 120 135 Q 130 135 130 120" stroke="#CBD5E1" stroke-width="18" stroke-linecap="round" fill="none"/>
+                        <!-- Tusks -->
+                        <path d="M 88 112 Q 80 120 75 115" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" fill="none"/>
+                        <path d="M 112 112 Q 120 120 125 115" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" fill="none"/>
+                        <!-- Eyes -->
+                        <circle cx="78" cy="82" r="6" fill="#1E293B"/>
+                        <circle cx="122" cy="82" r="6" fill="#1E293B"/>
+                        <circle cx="80" cy="80" r="2" fill="#FFFFFF"/>
+                        <circle cx="124" cy="80" r="2" fill="#FFFFFF"/>
+                        <!-- Cheeks -->
+                        <circle cx="62" cy="98" r="7" fill="#F43F5E" opacity="0.4"/>
+                        <circle cx="138" cy="98" r="7" fill="#F43F5E" opacity="0.4"/>
+                        <!-- Gardening Apron Straps -->
+                        <path d="M 65 145 Q 75 170 85 180" stroke="#10B981" stroke-width="8" stroke-linecap="round" fill="none"/>
+                        <path d="M 135 145 Q 125 170 115 180" stroke="#10B981" stroke-width="8" stroke-linecap="round" fill="none"/>
+                    </svg>
+                </div>
+                <span class="absolute -bottom-2 right-2 bg-emerald-500 text-white text-xs font-extrabold px-3 py-1 rounded-full border-2 border-white shadow-md">
+                    🌻 นักคิด ป.2
+                </span>
+            </div>
+
+            <!-- Title & Standard indicator -->
+            <div class="mb-5">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-amber-950 mb-1.5 leading-snug">
+                    น้องช้างนักคิดแก้ปัญหา 🐘<br><span class="text-lg text-emerald-800">ช่วยน้องช้างปลูกดอกไม้แสนสวย</span>
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-700 max-w-md mx-auto leading-relaxed font-medium">
+                    ฝึกกระบวนการแก้ปัญหาอย่างเป็นขั้นตอน (Problem Solving & Algorithm) วิทยาการคำนวณ ป.2 (ว 4.2 ป.2/1)
+                </p>
+            </div>
+
+            <!-- Student Input Form Card -->
+            <div class="w-full max-w-md card-cream rounded-3xl p-5 mb-5 text-left border-3 border-amber-300">
+                <h3 class="text-sm font-bold text-amber-900 mb-3 flex items-center gap-1.5">
+                    📝 กรอกข้อมูลผู้เรียนก่อนเริ่มภารกิจ
+                </h3>
+                
+                <div class="space-y-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">ชื่อ-นามสกุล *</label>
+                        <input type="text" id="inputName" placeholder="เช่น ด.ช. ปัญญา มีความสุข" class="w-full px-3.5 py-2.5 rounded-2xl border-2 border-amber-200 focus:border-amber-500 focus:outline-none text-sm text-slate-800 font-medium bg-amber-50/50">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">ชั้นเรียน</label>
+                            <input type="text" id="inputClass" value="ป.2/1" placeholder="เช่น ป.2/1" class="w-full px-3.5 py-2.5 rounded-2xl border-2 border-amber-200 focus:border-amber-500 focus:outline-none text-sm text-slate-800 font-medium bg-amber-50/50">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">เลขที่</label>
+                            <input type="number" id="inputNo" placeholder="เช่น 1" class="w-full px-3.5 py-2.5 rounded-2xl border-2 border-amber-200 focus:border-amber-500 focus:outline-none text-sm text-slate-800 font-medium bg-amber-50/50">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Start Button -->
+            <button onclick="startMission()" class="w-full max-w-md btn-amber font-extrabold text-base sm:text-lg py-3.5 px-6 rounded-2xl shadow-lg flex items-center justify-center gap-2 transition duration-200">
+                🚀 เริ่มภารกิจช่วยน้องช้างปลูกดอกไม้
+            </button>
+        </section>
+
+        <!-- ================= SCREEN 2: LEVEL 1 - EXPLORE PROBLEM ================= -->
+        <section id="screen-level1" class="screen-block hidden flex-col gap-4 py-2">
+            
+            <!-- Top Status Bar -->
+            <div class="flex justify-between items-center text-xs font-bold text-amber-900 bg-white/90 px-4 py-2 rounded-2xl border-2 border-amber-200 shadow-sm">
+                <span>ด่านที่ 1: สำรวจปัญหาการปลูกดอกไม้</span>
+                <span id="l1-step-indicator">ข้อที่ 1/3</span>
+                <span id="l1-score-indicator" class="text-rose-600">🎯 ข้อละ 2 คะแนน (ตอบผิดหัก 0.5)</span>
+            </div>
+
+            <!-- Title -->
+            <h2 class="text-xl sm:text-2xl font-extrabold text-amber-950 text-center">
+                ช่วยน้องช้างสังเกตปัญหาในสวน 🪴
+            </h2>
+
+            <!-- Scenario Card -->
+            <div class="card-cream rounded-3xl p-5 border-3 border-amber-300 relative text-center">
+                <span class="inline-block bg-amber-100 text-amber-900 text-xs font-bold px-3 py-1 rounded-full mb-3 border border-amber-200">
+                    สถานการณ์ประจำข้อ
+                </span>
+
+                <!-- Dynamic Scenario Image & Text -->
+                <div id="l1-scenario-box" class="flex flex-col items-center gap-3">
+                    <div id="l1-scenario-icon" class="w-20 h-20 bg-amber-50 rounded-2xl flex items-center justify-center text-4xl border-2 border-amber-200 shadow-inner">
+                        🥀
+                    </div>
+                    <p id="l1-scenario-text" class="text-sm sm:text-base font-semibold text-slate-800 leading-relaxed max-w-md">
+                        "กระถางหน้าบ้านของน้องช้างว่างเปล่า ดินแห้งแข็ง และไม่มีดอกไม้สวยงามเลย"
+                    </p>
+                </div>
+            </div>
+
+            <!-- Question Box -->
+            <div class="card-cream rounded-3xl p-5 border-3 border-amber-300 space-y-3">
+                <h3 id="l1-question-title" class="text-base font-extrabold text-amber-950 border-b border-amber-100 pb-2">
+                    ปัญหาหลักของน้องช้างคืออะไร?
+                </h3>
+
+                <!-- Choices Container -->
+                <div id="l1-choices-container" class="space-y-2.5">
+                    <!-- Dynamic Choices generated in JS -->
+                </div>
+            </div>
+
+            <!-- Hint Button & Action Buttons -->
+            <div class="space-y-2">
+                <button onclick="useHint(1)" class="w-full bg-amber-100/90 hover:bg-amber-200 text-amber-900 text-xs font-bold py-2.5 px-4 rounded-2xl border-2 border-amber-300 flex items-center justify-center gap-1.5 transition">
+                    💡 ขอคำใบ้ช่วยเหลือ (ฟรี)
+                </button>
+
+                <button onclick="submitLevel1Answer()" class="w-full btn-amber font-extrabold text-base py-3 rounded-2xl shadow-md transition">
+                    ยืนยันคำตอบ ➔
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= SCREEN 3: LEVEL 2 - PLAN & SELECT ACTIVITIES ================= -->
+        <section id="screen-level2" class="screen-block hidden flex-col gap-4 py-2">
+            
+            <!-- Top Status Bar -->
+            <div class="flex justify-between items-center text-xs font-bold text-amber-900 bg-white/90 px-4 py-2 rounded-2xl border-2 border-amber-200 shadow-sm">
+                <span>ด่านที่ 2: วางแผนเลือกสิ่งจำเป็น</span>
+                <span id="l2-count-indicator">เลือกอย่างน้อย 5 กิจกรรมที่จำเป็น</span>
+                <span class="text-rose-600">🎯 รวม 2 คะแนน (เลือกผิดหัก 0.5)</span>
+            </div>
+
+            <!-- Header -->
+            <div class="text-center">
+                <h2 class="text-xl sm:text-2xl font-extrabold text-amber-950">
+                    เลือกอุปกรณ์และสิ่งที่จำเป็นสำหรับการปลูกดอกไม้ 🌻
+                </h2>
+                <p class="text-xs text-slate-700 font-medium mt-1 max-w-lg mx-auto leading-relaxed">
+                    ให้นักเรียนเลือกสิ่งที่จำเป็น 5 อย่างที่น้องช้างต้องใช้ในการปลูกและดูแลดอกไม้ให้เจริญเติบโต (โดยไม่เลือกสิ่งที่ไม่จำเป็นหรือเป็นอันตราย)
+                </p>
+            </div>
+
+            <!-- Activity Cards Grid (3x3) -->
+            <div class="grid grid-cols-3 gap-2.5 sm:gap-3" id="l2-grid-container">
+                <!-- Activity cards generated dynamically in JS -->
+            </div>
+
+            <!-- Action Controls -->
+            <div class="flex flex-col gap-2 mt-2">
+                <div class="flex gap-2">
+                    <button onclick="clearL2Selection()" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold py-2.5 rounded-2xl border-2 border-slate-300 flex items-center justify-center gap-1">
+                        🔄 ล้างตัวเลือก
+                    </button>
+                    <button onclick="useHint(2)" class="flex-1 bg-amber-100/90 hover:bg-amber-200 text-amber-900 text-xs font-bold py-2.5 rounded-2xl border-2 border-amber-300 flex items-center justify-center gap-1">
+                        💡 ขอคำใบ้ (ฟรี)
+                    </button>
+                </div>
+
+                <button onclick="submitLevel2Plan()" class="w-full btn-amber font-extrabold text-base py-3 rounded-2xl shadow-md transition">
+                    ยืนยันแผนงาน ➔
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= SCREEN 4: LEVEL 3 - ROBOT GRID PROGRAMMING ================= -->
+        <section id="screen-level3" class="screen-block hidden flex-col gap-4 py-2">
+            
+            <!-- Top Status Bar -->
+            <div class="flex justify-between items-center text-xs font-bold text-amber-900 bg-white/90 px-4 py-2 rounded-2xl border-2 border-amber-200 shadow-sm">
+                <span>ด่านที่ 3: สั่งน้องช้างเดินตามขั้นตอน (Grid Walk)</span>
+                <span class="text-rose-600">🎯 รวม 2 คะแนน (ชน/ผิดหัก 0.5)</span>
+            </div>
+
+            <!-- Header -->
+            <div class="text-center">
+                <h2 class="text-xl sm:text-2xl font-extrabold text-amber-950">
+                    สั่งน้องช้างเดินหลบสิ่งกีดขวางไปรดน้ำดอกไม้ 🚿
+                </h2>
+                <p class="text-xs text-slate-700 font-medium mt-1">
+                    เลือกคำสั่งลงในแถบลำดับคำสั่ง แล้วกด "ทดลองเดิน" เพื่อดูน้องช้างทำงานตามลำดับจริง!
+                </p>
+            </div>
+
+            <!-- Main Interactive Garden Grid & Command Builder -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                
+                <!-- Garden Grid 5x5 -->
+                <div class="card-cream rounded-3xl p-3 border-3 border-amber-300 flex flex-col items-center">
+                    <div class="text-xs font-extrabold text-amber-900 mb-2">🗺️ แผนที่แปลงดอกไม้ (5x5 Grid)</div>
+                    <div id="grid-board" class="grid grid-cols-5 gap-1.5 bg-emerald-100/80 p-2.5 rounded-2xl border-2 border-emerald-300 shadow-inner w-64 h-64 sm:w-72 sm:h-72">
+                        <!-- Grid Cells Generated in JS -->
+                    </div>
+                </div>
+
+                <!-- Command Sequence Control Box -->
+                <div class="card-cream rounded-3xl p-4 border-3 border-amber-300 space-y-3">
+                    <div class="text-xs font-extrabold text-amber-900 border-b border-amber-200 pb-1 flex justify-between items-center">
+                        <span>📝 ลำดับบัตรคำสั่งที่เลือก:</span>
+                        <button onclick="clearRobotCommands()" class="text-[11px] text-rose-600 underline font-bold">ล้างคำสั่ง</button>
+                    </div>
+
+                    <!-- Command Sequence Slots -->
+                    <div id="robot-command-slots" class="min-h-[60px] bg-amber-50 rounded-2xl p-2 border-2 border-dashed border-amber-300 flex flex-wrap gap-1.5 items-center justify-start">
+                        <span class="text-xs text-slate-400 font-medium text-center w-full">แตะปุ่มคำสั่งด้านล่างเพื่อเพิ่มขั้นตอน...</span>
+                    </div>
+
+                    <!-- Available Command Palette -->
+                    <div class="space-y-1.5">
+                        <span class="text-[11px] font-extrabold text-slate-700">เลือกคำสั่งที่ต้องการเพิ่ม:</span>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="addRobotCommand('MOVE')" class="p-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs rounded-xl shadow flex items-center justify-center gap-1">
+                                ⬆️ เดินหน้า 1 ช่อง
+                            </button>
+                            <button onclick="addRobotCommand('LEFT')" class="p-2 bg-sky-500 hover:bg-sky-600 text-white font-bold text-xs rounded-xl shadow flex items-center justify-center gap-1">
+                                ↩️ เลี้ยวซ้าย 90°
+                            </button>
+                            <button onclick="addRobotCommand('RIGHT')" class="p-2 bg-indigo-500 hover:bg-indigo-600 text-white font-bold text-xs rounded-xl shadow flex items-center justify-center gap-1">
+                                ↪️ เลี้ยวขวา 90°
+                            </button>
+                            <button onclick="addRobotCommand('WATER')" class="p-2 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-xl shadow flex items-center justify-center gap-1">
+                                🚿 รดน้ำดอกไม้
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Robot Execution Actions -->
+            <div class="space-y-2 mt-2">
+                <div class="flex gap-2">
+                    <button onclick="resetRobotGrid()" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold py-2.5 rounded-2xl border-2 border-slate-300">
+                        🔄 เริ่มต้นตำแหน่งใหม่
+                    </button>
+                    <button onclick="useHint(3)" class="flex-1 bg-amber-100 hover:bg-amber-200 text-amber-900 text-xs font-bold py-2.5 rounded-2xl border-2 border-amber-300">
+                        💡 ขอคำใบ้ (ฟรี)
+                    </button>
+                </div>
+
+                <button onclick="runRobotSequence()" class="w-full btn-emerald font-extrabold text-base py-3 rounded-2xl shadow-md transition flex items-center justify-center gap-2">
+                    ▶️ ทดลองเดินตามขั้นตอน (Run Code)
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= SCREEN 5: LEVEL 4 - ALGORITHM SEQUENCING ================= -->
+        <section id="screen-level4" class="screen-block hidden flex-col gap-4 py-2">
+            
+            <!-- Top Status Bar -->
+            <div class="flex justify-between items-center text-xs font-bold text-amber-900 bg-white/90 px-4 py-2 rounded-2xl border-2 border-amber-200 shadow-sm">
+                <span>ด่านที่ 4: ลำดับขั้นตอนชีวิตจริง (Algorithm)</span>
+                <span>เรียง 1 ถึง 5</span>
+                <span class="text-rose-600">🎯 รวม 2 คะแนน (เรียงผิดหัก 0.5)</span>
+            </div>
+
+            <!-- Header -->
+            <div class="text-center">
+                <h2 class="text-xl sm:text-2xl font-extrabold text-amber-950">
+                    เรียงลำดับขั้นตอนการปลูกดอกไม้ในชีวิตจริง 🪴
+                </h2>
+                <p class="text-xs text-slate-700 font-medium mt-1">
+                    นำขั้นตอนการปลูกดอกไม้ 5 อย่างมาจัดเรียงลำดับจากขั้นตอนแรกไปหาขั้นตอนสุดท้ายให้ถูกต้อง
+                </p>
+            </div>
+
+            <!-- Sequence List Slots -->
+            <div class="card-cream rounded-3xl p-4 border-3 border-amber-300 space-y-2.5" id="l4-sequence-container">
+                <!-- 5 slots rendered dynamically -->
+            </div>
+
+            <!-- Actions -->
+            <div class="space-y-2">
+                <button onclick="useHint(4)" class="w-full bg-amber-100/90 hover:bg-amber-200 text-amber-900 text-xs font-bold py-2.5 px-4 rounded-2xl border-2 border-amber-300 flex items-center justify-center gap-1.5 transition">
+                    💡 ขอคำใบ้ช่วยเหลือ (ฟรี)
+                </button>
+
+                <button onclick="submitLevel4Sequence()" class="w-full btn-amber font-extrabold text-base py-3 rounded-2xl shadow-md transition">
+                    ยืนยันการลำดับขั้นตอน ➔
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= SCREEN 6: SUMMARY & CERTIFICATE ================= -->
+        <section id="screen-summary" class="screen-block hidden flex-col gap-5 py-4">
+            
+            <!-- Summary Card Certificate -->
+            <div class="print-area card-cream rounded-3xl p-5 sm:p-6 border-4 border-amber-300 space-y-5 text-center relative overflow-hidden shadow-2xl">
+                
+                <!-- Ribbon Badge -->
+                <div class="inline-block bg-amber-500 text-white font-extrabold text-xs px-4 py-1.5 rounded-full border-2 border-white shadow">
+                    🏆 รายงานผลการเรียนรู้และสรุปคะแนนรายบุคคล
+                </div>
+
+                <!-- Header info -->
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-amber-950 mb-1">
+                        น้องช้างนักคิดแก้ปัญหา 🐘
+                    </h2>
+                    <p class="text-xs text-slate-600 font-semibold">
+                        รายวิชาวิทยาการคำนวณ ชั้นประถมศึกษาปีที่ 2 (ว 4.2 ป.2/1)
+                    </p>
+                </div>
+
+                <!-- Student Details Box -->
+                <div class="bg-amber-50 rounded-2xl p-4 border-2 border-amber-200 text-left text-xs sm:text-sm grid grid-cols-2 gap-2 font-bold text-amber-950">
+                    <div>ผู้เรียน: <span id="resName" class="font-normal text-slate-800">-</span></div>
+                    <div>ชั้นเรียน: <span id="resClass" class="font-normal text-slate-800">-</span></div>
+                    <div>เลขที่: <span id="resNo" class="font-normal text-slate-800">-</span></div>
+                    <div>วันที่ทำภารกิจ: <span id="resDate" class="font-normal text-slate-800">-</span></div>
+                </div>
+
+                <!-- Score Big Circle -->
+                <div class="bg-gradient-to-tr from-amber-300 via-yellow-200 to-amber-100 rounded-2xl p-4 border-2 border-amber-400 max-w-xs mx-auto shadow-md">
+                    <span class="block text-xs font-extrabold text-amber-900 uppercase tracking-wider mb-1">
+                        คะแนนรวมทั้งหมดที่ทำได้
+                    </span>
+                    <div class="text-4xl sm:text-5xl font-black text-amber-950">
+                        <span id="resScore">0</span> <span class="text-lg font-bold text-amber-800">/ 12 คะแนน</span>
+                    </div>
+                    <span id="resGradeBadge" class="inline-block mt-2 text-xs font-bold px-3 py-1 bg-white text-emerald-800 rounded-full border border-emerald-300">
+                        🌟 ระดับคุณภาพ: ดีเยี่ยมสมบูรณ์
+                    </span>
+                </div>
+
+                <!-- Detailed Score Breakdown Table (สรุปคะแนนแต่ละด่าน) -->
+                <div class="text-left space-y-2 text-xs">
+                    <h3 class="font-extrabold text-amber-900 text-sm border-b border-amber-200 pb-1 flex items-center justify-between">
+                        <span>📊 ตารางสรุปคะแนนแยกตามด่านกิจกรรม</span>
+                        <span class="text-[11px] font-normal text-rose-600">(ตอบผิด/ชน หักครั้งละ 0.5 คะแนน)</span>
+                    </h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse border border-amber-200 rounded-xl overflow-hidden bg-white">
+                            <thead>
+                                <tr class="bg-amber-100 text-amber-950 text-[11px] font-extrabold">
+                                    <th class="p-2 border-b border-amber-200">ด่านกิจกรรม</th>
+                                    <th class="p-2 border-b border-amber-200 text-center">คะแนนเต็ม</th>
+                                    <th class="p-2 border-b border-amber-200 text-center">โดนหักคะแนน</th>
+                                    <th class="p-2 border-b border-amber-200 text-center">คะแนนสุทธิ</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-amber-100 text-[11px]">
+                                <tr>
+                                    <td class="p-2 font-bold text-slate-800">1. สำรวจปัญหา (3 ข้อ)</td>
+                                    <td class="p-2 text-center text-slate-600">6.0</td>
+                                    <td class="p-2 text-center text-rose-600 font-bold" id="pen-l1">-0.0</td>
+                                    <td class="p-2 text-center font-extrabold text-emerald-700" id="net-l1">6.0</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-bold text-slate-800">2. วางแผนเลือกสิ่งจำเป็น</td>
+                                    <td class="p-2 text-center text-slate-600">2.0</td>
+                                    <td class="p-2 text-center text-rose-600 font-bold" id="pen-l2">-0.0</td>
+                                    <td class="p-2 text-center font-extrabold text-emerald-700" id="net-l2">2.0</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-bold text-slate-800">3. สั่งน้องช้างเดินตามขั้นตอน</td>
+                                    <td class="p-2 text-center text-slate-600">2.0</td>
+                                    <td class="p-2 text-center text-rose-600 font-bold" id="pen-l3">-0.0</td>
+                                    <td class="p-2 text-center font-extrabold text-emerald-700" id="net-l3">2.0</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-bold text-slate-800">4. ลำดับขั้นตอนชีวิตจริง (Algorithm)</td>
+                                    <td class="p-2 text-center text-slate-600">2.0</td>
+                                    <td class="p-2 text-center text-rose-600 font-bold" id="pen-l4">-0.0</td>
+                                    <td class="p-2 text-center font-extrabold text-emerald-700" id="net-l4">2.0</td>
+                                </tr>
+                                <tr class="bg-amber-50 font-extrabold text-amber-950">
+                                    <td class="p-2">รวมทั้งหมด</td>
+                                    <td class="p-2 text-center">12.0</td>
+                                    <td class="p-2 text-center text-rose-600" id="pen-total">-0.0</td>
+                                    <td class="p-2 text-center text-emerald-700 text-xs" id="net-total">12.0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Educational Knowledge Summary Section (สรุปความรู้สำคัญ) -->
+                <div class="text-left space-y-3 bg-gradient-to-br from-emerald-50 via-teal-50 to-sky-50 p-4 rounded-2xl border-2 border-emerald-300">
+                    <h3 class="font-extrabold text-emerald-950 text-sm flex items-center gap-1.5 border-b border-emerald-200 pb-2">
+                        <span>💡 สรุปองค์ความรู้สำคัญ: วิทยาการคำนวณ ป.2 (ว 4.2 ป.2/1)</span>
+                    </h3>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+                        <div class="bg-white/90 p-3 rounded-xl border border-emerald-200 shadow-sm">
+                            <span class="font-bold text-emerald-900 block mb-1">🔍 1. การสำรวจและวิเคราะห์ปัญหา</span>
+                            <p class="text-slate-700 text-[11px] leading-relaxed">
+                                สังเกตสิ่งรอบตัว ค้นหาว่าอะไรคือปัญหาหลัก เช่น ดินแข็ง หรือขาดแสงแดด เพื่อแก้ไขได้ถูกจุด
+                            </p>
+                        </div>
+
+                        <div class="bg-white/90 p-3 rounded-xl border border-emerald-200 shadow-sm">
+                            <span class="font-bold text-emerald-900 block mb-1">📋 2. การวางแผนและเลือกสิ่งจำเป็น</span>
+                            <p class="text-slate-700 text-[11px] leading-relaxed">
+                                เลือกใช้อุปกรณ์และทรัพยากรที่จำเป็นอย่างคุ้มค่า หลีกเลี่ยงสิ่งที่ไม่เกี่ยวข้องหรือเป็นอันตราย
+                            </p>
+                        </div>
+
+                        <div class="bg-white/90 p-3 rounded-xl border border-emerald-200 shadow-sm">
+                            <span class="font-bold text-emerald-900 block mb-1">🐘 3. อัลกอริทึมและการสั่งการน้องช้าง</span>
+                            <p class="text-slate-700 text-[11px] leading-relaxed">
+                                กำหนดขั้นตอนคำสั่งทีละลำดับ (เดินหน้า เลี้ยว รดน้ำ) เพื่อให้น้องช้างทำงานบรรลุเป้าหมาย
+                            </p>
+                        </div>
+
+                        <div class="bg-white/90 p-3 rounded-xl border border-emerald-200 shadow-sm">
+                            <span class="font-bold text-emerald-900 block mb-1">🛠️ 4. การตรวจสอบและแก้ไข (Debugging)</span>
+                            <p class="text-slate-700 text-[11px] leading-relaxed">
+                                เมื่อเกิดข้อผิดพลาด ให้ฝึกสังเกต ทบทวนทีละขั้นตอน และปรับแก้จนกว่าจะประสบความสำเร็จ
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Learning Indicator Rubric Evaluation -->
+                <div class="text-left space-y-2 text-xs">
+                    <h3 class="font-extrabold text-amber-900 text-sm border-b border-amber-200 pb-1">
+                        🎯 การประเมินตามตัวชี้วัด ว 4.2 ป.2/1
+                    </h3>
+                    <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-2xl text-emerald-900 space-y-1">
+                        <p class="font-bold">✓ แสดงขั้นตอนการแก้ปัญหาชีวิตประจำวันอย่างเป็นขั้นตอนและมีลำดับเหตุผล</p>
+                        <p id="resEvaluationText" class="text-[11px] text-emerald-800 leading-relaxed">
+                            ผู้เรียนมีความสามารถในการสำรวจปัญหา คัดเลือกสิ่งจำเป็น สั่งการหุ่นยนต์ และจัดลำดับอัลกอริทึมได้อย่างถูกต้องสมบูรณ์
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-3 no-print">
+                <button onclick="window.print()" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-sm py-3.5 px-4 rounded-2xl shadow-md border-b-4 border-indigo-800 flex items-center justify-center gap-2 transition">
+                    🖨️ พิมพ์ / บันทึกใบรายงานผล
+                </button>
+                <button onclick="goToStartScreen()" class="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-extrabold text-sm py-3.5 px-4 rounded-2xl shadow-md border-b-4 border-amber-700 flex items-center justify-center gap-2 transition">
+                    🔄 ทำภารกิจอีกครั้ง
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= MODALS ================= -->
+    
+    <!-- Feedback Modal -->
+    <div id="modal-feedback" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 no-print">
+        <div class="card-cream rounded-3xl p-6 max-w-sm w-full text-center border-4 border-amber-400 animate-pop">
+            <div id="fbIcon" class="text-5xl mb-2">🎉</div>
+            <h3 id="fbTitle" class="text-xl font-extrabold text-amber-950 mb-2">ถูกต้องแล้ว!</h3>
+            <p id="fbMessage" class="text-xs sm:text-sm text-slate-700 font-medium mb-5 leading-relaxed">
+                ยอดเยี่ยมมาก! คุณเข้าใจขั้นตอนการแก้ปัญหาได้อย่างถูกต้อง
+            </p>
+            <button id="fbActionBtn" onclick="closeModal('modal-feedback')" class="w-full btn-amber font-extrabold py-2.5 rounded-2xl text-sm">
+                ตกลง ➔
+            </button>
+        </div>
+    </div>
+
+    <!-- Instructions & Rubric Modal -->
+    <div id="modal-instructions" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 no-print">
+        <div class="card-cream rounded-3xl p-6 max-w-md w-full border-4 border-amber-300 text-left space-y-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b border-amber-200 pb-2">
+                <h3 class="text-base font-extrabold text-amber-950 flex items-center gap-2">
+                    📖 คำชี้แจงและเกณฑ์การประเมิน
+                </h3>
+                <button onclick="closeModal('modal-instructions')" class="text-slate-400 font-extrabold text-lg">✕</button>
+            </div>
+
+            <div class="space-y-3 text-xs text-slate-700">
+                <p class="font-bold text-amber-900">วัตถุประสงค์:</p>
+                <p>เพื่อฝึกให้นักเรียนชั้น ป.2 สามารถแก้ไขปัญหาในชีวิตประจำวันอย่างเป็นขั้นตอน (Algorithm & Debugging) ตามหลักวิทยาการคำนวณผ่านเรื่องราวของน้องช้าง</p>
+
+                <p class="font-bold text-amber-900">ขั้นตอนทำภารกิจ 4 ด่าน:</p>
+                <ol class="list-decimal list-inside space-y-1">
+                    <li><b>ด่าน 1: สำรวจปัญหา</b> - วิเคราะห์สถานการณ์และเลือกข้อที่เป็นปัญหาหลัก (3 ข้อ ข้อละ 2 คะแนน)</li>
+                    <li><b>ด่าน 2: วางแผนเลือกสิ่งจำเป็น</b> - คัดเลือกอุปกรณ์ที่จำเป็นในการปลูกดอกไม้ (2 คะแนน)</li>
+                    <li><b>ด่าน 3: สั่งน้องช้างเดิน</b> - เขียนโปรแกรมสั่งน้องช้างหลบวัชพืชไปรดน้ำดอกไม้ (2 คะแนน)</li>
+                    <li><b>ด่าน 4: ลำดับขั้นตอนชีวิตจริง</b> - เรียงลำดับขั้นตอนการปลูกดอกไม้ 1 ถึง 5 (2 คะแนน)</li>
+                </ol>
+
+                <p class="font-bold text-emerald-800">✨ เกณฑ์ระบบคะแนนและการหักคะแนน:</p>
+                <ul class="list-disc list-inside space-y-1">
+                    <li>คะแนนเต็มรวมทั้งหมด 12 คะแนน</li>
+                    <li>หากเลือกผิด ตอบผิด หรือน้องช้างชนสิ่งกีดขวาง จะโดน<b>หักครั้งละ 0.5 คะแนน</b></li>
+                    <li>นักเรียนสามารถลองแก้ไขคำสั่ง (Debug) ได้จนกว่าจะถูกต้องเพื่อเรียนรู้จากข้อผิดพลาด</li>
+                </ul>
+            </div>
+
+            <button onclick="closeModal('modal-instructions')" class="w-full btn-amber font-bold py-2.5 rounded-2xl text-xs">
+                เข้าใจแล้ว
+            </button>
+        </div>
+    </div>
+
+    <!-- Hint Modal -->
+    <div id="modal-hint" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 no-print">
+        <div class="card-cream rounded-3xl p-5 max-w-sm w-full text-center border-4 border-amber-400">
+            <div class="text-4xl mb-2">💡</div>
+            <h3 class="text-base font-extrabold text-amber-950 mb-1">คำใบ้จากน้องช้าง</h3>
+            <p class="text-[11px] text-emerald-700 font-bold mb-3">(คำใบ้ช่วยเหลือฟรี - ไม่หักคะแนน)</p>
+            <p id="hintText" class="text-xs text-slate-800 bg-amber-50/80 p-3.5 rounded-2xl border border-amber-200 mb-4 leading-relaxed font-medium">
+                คำใบ้จะแสดงตรงนี้...
+            </p>
+            <button onclick="closeModal('modal-hint')" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 rounded-xl text-xs shadow">
+                ตกลง
+            </button>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT ENGINE ================= -->
+    <script>
+        let audioCtx = null;
+        let soundEnabled = true;
+
+        // Global scoring state & penalties breakdown per level
+        let totalScore = 0;
+        const maxPossibleScore = 12;
+
+        let stagePenalties = {
+            l1: 0,
+            l2: 0,
+            l3: 0,
+            l4: 0
+        };
+
+        let currentStage = 'l1';
+
+        function updateScoreDisplay() {
+            const scoreElem = document.getElementById('headerScore');
+            if (scoreElem) {
+                // Display up to 1 decimal place if needed
+                scoreElem.textContent = Number.isInteger(totalScore) ? totalScore : totalScore.toFixed(1);
+            }
+        }
+
+        function addScore(amount = 2) {
+            totalScore += amount;
+            updateScoreDisplay();
+        }
+
+        function deductScore(amount = 0.5) {
+            totalScore = Math.max(0, totalScore - amount);
+            if (stagePenalties[currentStage] !== undefined) {
+                stagePenalties[currentStage] += amount;
+            }
+            updateScoreDisplay();
+        }
+
+        function resetScore() {
+            totalScore = 0;
+            stagePenalties = { l1: 0, l2: 0, l3: 0, l4: 0 };
+            updateScoreDisplay();
+        }
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            const icon = document.getElementById('soundIcon');
+            const text = document.getElementById('soundText');
+            if (soundEnabled) {
+                icon.textContent = '🔊';
+                text.textContent = 'เปิดเสียง';
+                playSound('click');
+            } else {
+                icon.textContent = '🔇';
+                text.textContent = 'ปิดเสียง';
+            }
+        }
+
+        function playSound(type) {
+            if (!soundEnabled) return;
+            try {
+                initAudio();
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                if (type === 'click') {
+                    osc.frequency.setValueAtTime(450, now);
+                    osc.frequency.exponentialRampToValueAtTime(850, now + 0.08);
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.08);
+                    osc.start(now);
+                    osc.stop(now + 0.08);
+                } else if (type === 'correct') {
+                    [523.25, 659.25, 783.99, 1046.50].forEach((freq, idx) => {
+                        const o = audioCtx.createOscillator();
+                        const g = audioCtx.createGain();
+                        o.connect(g);
+                        g.connect(audioCtx.destination);
+                        o.frequency.setValueAtTime(freq, now + idx * 0.08);
+                        g.gain.setValueAtTime(0.15, now + idx * 0.08);
+                        g.gain.linearRampToValueAtTime(0.01, now + idx * 0.08 + 0.15);
+                        o.start(now + idx * 0.08);
+                        o.stop(now + idx * 0.08 + 0.15);
+                    });
+                } else if (type === 'wrong') {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(220, now);
+                    osc.frequency.linearRampToValueAtTime(120, now + 0.25);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.25);
+                    osc.start(now);
+                    osc.stop(now + 0.25);
+                }
+            } catch (e) {
+                console.log('Audio init error:', e);
+            }
+        }
+
+        let studentData = { name: '', class: '', no: '' };
+
+        // Navigation helpers
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen-block').forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('flex');
+            });
+            const target = document.getElementById(`screen-${screenId}`);
+            if (target) {
+                target.classList.remove('hidden');
+                target.classList.add('flex');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goToStartScreen() {
+            playSound('click');
+            showScreen('start');
+        }
+
+        function openModal(id) {
+            playSound('click');
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            playSound('click');
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        function showFeedback(icon, title, message, nextFn) {
+            document.getElementById('fbIcon').textContent = icon;
+            document.getElementById('fbTitle').textContent = title;
+            document.getElementById('fbMessage').textContent = message;
+            const btn = document.getElementById('fbActionBtn');
+            btn.onclick = function() {
+                closeModal('modal-feedback');
+                if (nextFn) nextFn();
+            };
+            openModal('modal-feedback');
+        }
+
+        function useHint(level) {
+            playSound('click');
+            const hintElem = document.getElementById('hintText');
+
+            if (level === 1) {
+                if (l1CurrentIdx === 0) {
+                    hintElem.textContent = "💡 คำใบ้ข้อที่ 1/3: สังเกตสภาพดินในกระถางสิครับ ดินที่จับตัวแข็งและมีแมลงเป็นอุปสรรค ปัญหาสำคัญจึงเป็นการเตรียมดินให้พร้อมครับ";
+                } else if (l1CurrentIdx === 1) {
+                    hintElem.textContent = "💡 คำใบ้ข้อที่ 2/3: ต้นไม้ต้องการแสงแดดในการสร้างอาหาร เมื่อใบเหลืองเพราะอยู่ในมืด ควรย้ายกระถางออกไปรับแสงแดดครับ";
+                } else {
+                    hintElem.textContent = "💡 คำใบ้ข้อที่ 3/3: การทำตามขั้นตอนอย่างสม่ำเสมอคือหัวใจของการแก้ปัญหาที่สำเร็จครับ";
+                }
+            } else if (level === 2) {
+                hintElem.textContent = "💡 คำใบ้ด่านที่ 2: สิ่งที่ช่วยให้ดอกไม้โตได้คือ 'กระถางและดิน', 'เมล็ดพันธุ์', 'บัวรดน้ำ', 'แสงแดด' และ 'การพรวนดิน' ส่วนน้ำอัดลม ห้องมืด หรือตัดใบไม้ทิ้ง ควรหลีกเลี่ยงนะครับ";
+            } else if (level === 3) {
+                hintElem.textContent = "💡 คำใบ้ด่านที่ 3: น้องช้างต้องการคำสั่ง: 1. เดินหน้า ➔ 2. เลี้ยวขวา ➔ 3. เดินหน้า ➔ 4. รดน้ำดอกไม้ ลองกดทดลองเดินเพื่อตรวจเช็กได้เลย!";
+            } else if (level === 4) {
+                hintElem.textContent = "💡 คำใบ้ด่านที่ 4: เรียงตามขั้นตอนจริงนะครับ: 1. เตรียมกระถางใส่ดิน ➔ 2. หยอดเมล็ดพันธุ์ ➔ 3. รดน้ำ ➔ 4. วางรับแสงแดด ➔ 5. เฝ้าดูการเจริญเติบโต";
+            }
+            openModal('modal-hint');
+        }
+
+        function startMission() {
+            const nameInput = document.getElementById('inputName').value.trim();
+            const classInput = document.getElementById('inputClass').value.trim();
+            const noInput = document.getElementById('inputNo').value.trim();
+
+            if (!nameInput) {
+                showFeedback('⚠️', 'กรุณากรอกชื่อ-นามสกุล', 'ระบุชื่อผู้เรียนก่อนเริ่มภารกิจนะครับ');
+                return;
+            }
+
+            studentData.name = nameInput;
+            studentData.class = classInput || 'ป.2/1';
+            studentData.no = noInput || '1';
+
+            playSound('click');
+            resetScore();
+            initLevel1();
+            showScreen('level1');
+        }
+
+        /* ================= LEVEL 1 LOGIC ================= */
+        const l1Questions = [
+            {
+                stepText: 'ข้อที่ 1/3',
+                icon: '🪴',
+                scenario: '"น้องช้างอยากปลูกดอกไม้ในกระถางเก่า แต่เมื่อสังเกตดูพบว่า ดินจับตัวเป็นก้อนแข็ง และมีแมลงกัดกินพืชปนอยู่เต็มกระถาง"',
+                title: 'จากการสังเกต ปัญหาสำคัญที่ต้องจัดการก่อนเริ่มปลูกคืออะไร?',
+                choices: [
+                    { text: 'กระถางมีสีสันไม่สวยงาม ต้องทาสีใหม่ก่อน', correct: false },
+                    { text: 'สภาพดินแข็งและไม่เหมาะสม ต้องพรวนดินและเตรียมดินใหม่', correct: true },
+                    { text: 'บริเวณสวนกว้างเกินไป ทำให้ดูแลไม่ทั่วถึง', correct: false }
+                ]
+            },
+            {
+                stepText: 'ข้อที่ 2/3',
+                icon: '🌿',
+                scenario: '"เมื่อหยอดเมล็ดจนงอกเป็นต้นอ่อน น้องช้างนำกระถางไปเก็บไว้ใต้หลังคามืดๆ ทำให้ต้นอ่อนลำต้นเอนลีบ และใบเริ่มเปลี่ยนเป็นสีเหลืองซีด"',
+                title: 'ถ้านักเรียนเป็นนักคิดแก้ปัญหา จะช่วยน้องช้างวิเคราะห์แก้ปัญหานี้อย่างไร?',
+                choices: [
+                    { text: 'เทน้ำอัดลมใส่กระถางเพื่อเพิ่มความหวานให้ต้นไม้', correct: false },
+                    { text: 'ตัดต้นอ่อนทิ้งทั้งหมดแล้วเริ่มปลูกใหม่ทันที', correct: false },
+                    { text: 'ย้ายกระถางออกไปวางบริเวณที่มีแสงแดดส่องถึงอย่างพอเหมาะ', correct: true }
+                ]
+            },
+            {
+                stepText: 'ข้อที่ 3/3',
+                icon: '🌻',
+                scenario: '"กระถางที่ 1 รดน้ำ พรวนดิน และรับแสงแดดสม่ำเสมอจนออกดอกสวยงาม ส่วนกระถางที่ 2 รดน้ำบ้างไม่รดบ้างทำให้ต้นแคระเกร็น"',
+                title: 'เปรียบเทียบผลลัพธ์ทั้งสองนี้ แสดงให้เห็นถึงความสำคัญของเรื่องใด?',
+                choices: [
+                    { text: 'การปฏิบัติงานตามขั้นตอนและดูแลอย่างสม่ำเสมอ ทำให้แก้ปัญหาได้สำเร็จ', correct: true },
+                    { text: 'การปลูกต้นไม้ขึ้นอยู่กับโชคชะตา ไม่เกี่ยวข้องกับขั้นตอนการทำงาน', correct: false },
+                    { text: 'การรดน้ำเพียงอย่างเดียวโดยไม่ตากแดดก็ทำให้ต้นไม้โตได้ดี', correct: false }
+                ]
+            }
+        ];
+
+        let l1CurrentIdx = 0;
+        let l1SelectedChoice = null;
+
+        function initLevel1() {
+            currentStage = 'l1';
+            l1CurrentIdx = 0;
+            renderLevel1Question();
+        }
+
+        function renderLevel1Question() {
+            const q = l1Questions[l1CurrentIdx];
+            l1SelectedChoice = null;
+
+            document.getElementById('l1-step-indicator').textContent = q.stepText;
+            document.getElementById('l1-scenario-icon').textContent = q.icon;
+            document.getElementById('l1-scenario-text').textContent = q.scenario;
+            document.getElementById('l1-question-title').textContent = q.title;
+
+            const container = document.getElementById('l1-choices-container');
+            container.innerHTML = '';
+
+            const prefixes = ['ก.', 'ข.', 'ค.'];
+
+            q.choices.forEach((c, idx) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'w-full text-left p-3.5 rounded-2xl border-2 border-amber-200 hover:border-amber-400 bg-amber-50/40 hover:bg-amber-100/50 transition font-medium text-xs sm:text-sm text-slate-800 flex items-center gap-2.5 shadow-sm';
+                btn.onclick = () => selectL1Choice(idx);
+                btn.innerHTML = `
+                    <span class="w-5 h-5 rounded-full border-2 border-amber-400 flex items-center justify-center shrink-0 bg-white" id="l1-choice-dot-${idx}">
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-500 hidden" id="l1-choice-inner-${idx}"></span>
+                    </span>
+                    <span><strong class="text-amber-900">${prefixes[idx]}</strong> ${c.text}</span>
+                `;
+                container.appendChild(btn);
+            });
+        }
+
+        function selectL1Choice(idx) {
+            playSound('click');
+            l1SelectedChoice = idx;
+
+            l1Questions[l1CurrentIdx].choices.forEach((_, i) => {
+                const dot = document.getElementById(`l1-choice-dot-${i}`);
+                const inner = document.getElementById(`l1-choice-inner-${i}`);
+                if (i === idx) {
+                    dot.classList.add('border-amber-600');
+                    inner.classList.remove('hidden');
+                } else {
+                    dot.classList.remove('border-amber-600');
+                    inner.classList.add('hidden');
+                }
+            });
+        }
+
+        function submitLevel1Answer() {
+            if (l1SelectedChoice === null) {
+                showFeedback('⚠️', 'เลือกคำตอบ', 'กรุณาเลือกคำตอบ 1 ข้อก่อนนะครับ');
+                return;
+            }
+
+            const q = l1Questions[l1CurrentIdx];
+            const isCorrect = q.choices[l1SelectedChoice].correct;
+
+            if (isCorrect) {
+                playSound('correct');
+                addScore(2);
+                l1CurrentIdx++;
+                if (l1CurrentIdx < l1Questions.length) {
+                    showFeedback('🎉', 'เก่งมาก คำตอบถูกต้อง!', 'ได้รับ +2 คะแนนในข้อนี้! มาทำข้อถัดไปกันเลยครับ', () => {
+                        renderLevel1Question();
+                    });
+                } else {
+                    showFeedback('🌟', 'ผ่านด่านที่ 1 แล้ว!', 'น้องช้างเข้าใจปัญหาแล้ว ไปวางแผนเลือกอุปกรณ์ในด่านที่ 2 กันต่อ!', () => {
+                        initLevel2();
+                        showScreen('level2');
+                    });
+                }
+            } else {
+                deductScore(0.5);
+                playSound('wrong');
+                showFeedback('❌', 'ตอบผิด หัก 0.5 คะแนน', `คำตอบยังไม่ถูกต้อง (โดนหัก 0.5 คะแนน | คะแนนปัจจุบัน ${Number.isInteger(totalScore) ? totalScore : totalScore.toFixed(1)} คะแนน)\nลองอ่านสถานการณ์แล้วเลือกคำตอบใหม่อีกครั้งครับ!`);
+            }
+        }
+
+        /* ================= LEVEL 2 LOGIC ================= */
+        const l2Activities = [
+            { id: 1, name: 'กระถางและดิน', icon: '🪴', necessary: true },
+            { id: 2, name: 'เมล็ดพันธุ์ดอกไม้', icon: '🌱', necessary: true },
+            { id: 3, name: 'บัวรดน้ำ', icon: '🚿', necessary: true },
+            { id: 4, name: 'วางรับแสงแดด', icon: '☀️', necessary: true },
+            { id: 5, name: 'พรวนดินกำจัดวัชพืช', icon: '🧹', necessary: true },
+            { id: 6, name: 'เทน้ำอัดลมใส่', icon: '🥤', necessary: false },
+            { id: 7, name: 'ตัดใบไม้ออกหมด', icon: '✂️', necessary: false },
+            { id: 8, name: 'วางในห้องมืด', icon: '🌑', necessary: false },
+            { id: 9, name: 'ดึงต้นไม้ออกดู', icon: '🚫', necessary: false }
+        ];
+
+        let l2SelectedIds = [];
+
+        function initLevel2() {
+            currentStage = 'l2';
+            l2SelectedIds = [];
+            renderLevel2Grid();
+        }
+
+        function renderLevel2Grid() {
+            const container = document.getElementById('l2-grid-container');
+            container.innerHTML = '';
+
+            l2Activities.forEach(act => {
+                const isSelected = l2SelectedIds.includes(act.id);
+                const card = document.createElement('div');
+                card.className = `cursor-pointer rounded-2xl p-3 text-center border-2 transition duration-200 flex flex-col items-center justify-center min-h-[110px] ${
+                    isSelected 
+                        ? 'bg-amber-100 border-amber-500 shadow-md transform -translate-y-1' 
+                        : 'bg-white border-amber-200 hover:border-amber-300 shadow-sm'
+                }`;
+                
+                const statusText = isSelected ? '✓ เลือกแล้ว' : 'แตะเพื่อเลือก';
+
+                card.innerHTML = `
+                    <div class="text-2xl sm:text-3xl mb-1">${act.icon}</div>
+                    <div class="text-xs sm:text-sm font-extrabold text-slate-800 leading-tight">${act.name}</div>
+                    <div class="text-[10px] ${isSelected ? 'text-amber-800 font-bold' : 'text-slate-400'} mt-1">${statusText}</div>
+                `;
+
+                card.onclick = () => toggleL2Card(act.id);
+                container.appendChild(card);
+            });
+
+            document.getElementById('l2-count-indicator').textContent = `เลือกแล้ว ${l2SelectedIds.length} / 5 สิ่งที่จำเป็น`;
+        }
+
+        function toggleL2Card(id) {
+            playSound('click');
+            if (l2SelectedIds.includes(id)) {
+                l2SelectedIds = l2SelectedIds.filter(x => x !== id);
+            } else {
+                if (l2SelectedIds.length >= 5) {
+                    showFeedback('⚠️', 'เลือกครบ 5 อย่างแล้ว', 'หากต้องการเปลี่ยน ให้แตะการ์ดที่เลือกไว้เพื่อนำออกก่อน');
+                    return;
+                }
+                l2SelectedIds.push(id);
+            }
+            renderLevel2Grid();
+        }
+
+        function clearL2Selection() {
+            playSound('click');
+            l2SelectedIds = [];
+            renderLevel2Grid();
+        }
+
+        function submitLevel2Plan() {
+            if (l2SelectedIds.length < 5) {
+                showFeedback('⚠️', 'ยังเลือกไม่ครบ 5 อย่าง', 'กรุณาเลือกสิ่งจำเป็นให้ครบทั้ง 5 อย่างก่อนนะครับ');
+                return;
+            }
+
+            const selectedObjects = l2Activities.filter(a => l2SelectedIds.includes(a.id));
+            const hasUnnecessary = selectedObjects.some(a => !a.necessary);
+
+            if (!hasUnnecessary) {
+                playSound('correct');
+                addScore(2);
+                showFeedback('🎉', 'วางแผนเลือกสิ่งจำเป็นสำเร็จ!', 'น้องช้างเลือกอุปกรณ์ถูกต้องครบถ้วน (+2 คะแนน)! ไปเขียนโปรแกรมสั่งหุ่นยนต์ในด่านที่ 3 กันครับ!', () => {
+                    initLevel3();
+                    showScreen('level3');
+                });
+            } else {
+                deductScore(0.5);
+                playSound('wrong');
+                showFeedback('❌', 'เลือกผิด หัก 0.5 คะแนน', `มีสิ่งที่ไม่จำเป็นหรือเป็นอันตรายปนอยู่ (โดนหัก 0.5 คะแนน | คะแนนปัจจุบัน ${Number.isInteger(totalScore) ? totalScore : totalScore.toFixed(1)} คะแนน)\nลองตรวจสอบ: น้ำอัดลม การตัดใบไม้ หรือห้องมืด ไม่ใช่สิ่งที่ช่วยให้พืชโตครับ!`);
+            }
+        }
+
+        /* ================= LEVEL 3: ROBOT GRID PROGRAMMING ================= */
+        let robotPos = { r: 0, c: 0, dir: 1 };
+        let robotCommands = [];
+        const gridGoal = { r: 2, c: 2 };
+        const gridObstacles = [
+            { r: 1, c: 0 },
+            { r: 0, c: 2 }
+        ];
+
+        function initLevel3() {
+            currentStage = 'l3';
+            resetRobotGrid();
+        }
+
+        function resetRobotGrid() {
+            robotPos = { r: 0, c: 0, dir: 1 }; // Facing Right/East
+            robotCommands = [];
+            renderRobotGrid();
+            renderRobotCommandSlots();
+        }
+
+        function renderRobotGrid() {
+            const board = document.getElementById('grid-board');
+            board.innerHTML = '';
+
+            const dirArrows = ['⬆️', '➡️', '⬇️', '⬅️'];
+
+            for (let r = 0; r < 5; r++) {
+                for (let c = 0; c < 5; c++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'bg-white rounded-xl flex items-center justify-center text-xl shadow-sm border border-emerald-200 relative';
+
+                    const isRobot = (r === robotPos.r && c === robotPos.c);
+                    const isGoal = (r === gridGoal.r && c === gridGoal.c);
+                    const isObstacle = gridObstacles.some(o => o.r === r && o.c === c);
+
+                    if (isRobot) {
+                        cell.classList.add('bg-amber-200', 'border-2', 'border-amber-500');
+                        cell.innerHTML = `🐘<span class="text-[10px] absolute bottom-0 right-0">${dirArrows[robotPos.dir]}</span>`;
+                    } else if (isGoal) {
+                        cell.classList.add('bg-rose-100');
+                        cell.innerHTML = '🌻';
+                    } else if (isObstacle) {
+                        cell.classList.add('bg-slate-200');
+                        cell.innerHTML = '🌿'; // Weed
+                    } else {
+                        cell.innerHTML = '';
+                    }
+
+                    board.appendChild(cell);
+                }
+            }
+        }
+
+        function addRobotCommand(cmd) {
+            playSound('click');
+            if (robotCommands.length >= 8) {
+                showFeedback('⚠️', 'คำสั่งเต็มแล้ว', 'สามารถใส่คำสั่งได้สูงสุด 8 ขั้นตอนครับ');
+                return;
+            }
+            robotCommands.push(cmd);
+            renderRobotCommandSlots();
+        }
+
+        function clearRobotCommands() {
+            playSound('click');
+            robotCommands = [];
+            renderRobotCommandSlots();
+        }
+
+        function renderRobotCommandSlots() {
+            const slots = document.getElementById('robot-command-slots');
+            slots.innerHTML = '';
+
+            if (robotCommands.length === 0) {
+                slots.innerHTML = '<span class="text-xs text-slate-400 font-medium text-center w-full">แตะปุ่มคำสั่งด้านล่างเพื่อเพิ่มขั้นตอน...</span>';
+                return;
+            }
+
+            const cmdLabels = {
+                'MOVE': '⬆️ เดินหน้า',
+                'LEFT': '↩️ เลี้ยวซ้าย',
+                'RIGHT': '↪️ เลี้ยวขวา',
+                'WATER': '🚿 รดน้ำ'
+            };
+
+            robotCommands.forEach((cmd, idx) => {
+                const badge = document.createElement('span');
+                badge.className = 'px-2 py-1 bg-amber-200 text-amber-950 rounded-lg text-xs font-bold border border-amber-300 flex items-center gap-1 shadow-sm';
+                badge.innerHTML = `${idx+1}. ${cmdLabels[cmd]} <button onclick="removeRobotCmd(${idx})" class="text-rose-600 text-xs font-black">✕</button>`;
+                slots.appendChild(badge);
+            });
+        }
+
+        function removeRobotCmd(idx) {
+            playSound('click');
+            robotCommands.splice(idx, 1);
+            renderRobotCommandSlots();
+        }
+
+        function runRobotSequence() {
+            if (robotCommands.length === 0) {
+                showFeedback('⚠️', 'กรุณาใส่คำสั่งก่อน', 'แตะปุ่มคำสั่งด้านล่างเพื่อสร้างอัลกอริทึมให้น้องช้างก่อนครับ');
+                return;
+            }
+
+            // Reset position before execution
+            robotPos = { r: 0, c: 0, dir: 1 };
+            renderRobotGrid();
+
+            let step = 0;
+            const dr = [-1, 0, 1, 0]; // North, East, South, West
+            const dc = [0, 1, 0, -1];
+
+            const interval = setInterval(() => {
+                if (step >= robotCommands.length) {
+                    clearInterval(interval);
+                    // Check final state
+                    if (robotPos.r === gridGoal.r && robotPos.c === gridGoal.c) {
+                        playSound('correct');
+                        addScore(2);
+                        showFeedback('🎉', 'น้องช้างปฏิบัติภารกิจสำเร็จ!', 'น้องช้างเดินมาถึงแปลงดอกไม้และรดน้ำสำเร็จแล้ว (+2 คะแนน)! ไปทำด่านที่ 4 กันต่อเลย!', () => {
+                            initLevel4();
+                            showScreen('level4');
+                        });
+                    } else {
+                        deductScore(0.5);
+                        playSound('wrong');
+                        showFeedback('❌', 'ยังไม่ถึงจุดหมาย หัก 0.5 คะแนน', `น้องช้างเดินครบตามคำสั่งแล้วแต่ยังไปไม่ถึงดอกไม้ (โดนหัก 0.5 คะแนน | คะแนนปัจจุบัน ${Number.isInteger(totalScore) ? totalScore : totalScore.toFixed(1)} คะแนน)\nลองปรับแก้ไขคำสั่ง (Debug) ใหม่ดูนะครับ!`);
+                    }
+                    return;
+                }
+
+                const cmd = robotCommands[step];
+
+                if (cmd === 'MOVE') {
+                    const nextR = robotPos.r + dr[robotPos.dir];
+                    const nextC = robotPos.c + dc[robotPos.dir];
+
+                    // Check bounds & obstacles
+                    if (nextR < 0 || nextR >= 5 || nextC < 0 || nextC >= 5) {
+                        clearInterval(interval);
+                        deductScore(0.5);
+                        playSound('wrong');
+                        showFeedback('🚧', 'ชนขอบแปลงดอกไม้! หัก 0.5 คะแนน', `น้องช้างเดินชนขอบแปลง (โดนหัก 0.5 คะแนน | คะแนนปัจจุบัน ${Number.isInteger(totalScore) ? totalScore : totalScore.toFixed(1)} คะแนน)\nลองปรับลำดับคำสั่งเพื่อเลี้ยวหลบดูนะครับ`);
+                        return;
+                    }
+
+                    const isObstacle = gridObstacles.some(o => o.r === nextR && o.c === nextC);
+                    if (isObstacle) {
+                        clearInterval(interval);
+                        deductScore(0.5);
+                        playSound('wrong');
+                        showFeedback('🌿', 'ชนวัชพืช! หัก 0.5 คะแนน', `น้องช้างเดินชนวัชพืช (โดนหัก 0.5 คะแนน | คะแนนปัจจุบัน ${Number.isInteger(totalScore) ? totalScore : totalScore.toFixed(1)} คะแนน)\nลองวางแผนเส้นทางเดินหลบวัชพืชใหม่ครับ`);
+                        return;
+                    }
+
+                    robotPos.r = nextR;
+                    robotPos.c = nextC;
+                } else if (cmd === 'LEFT') {
+                    robotPos.dir = (robotPos.dir + 3) % 4;
+                } else if (cmd === 'RIGHT') {
+                    robotPos.dir = (robotPos.dir + 1) % 4;
+                } else if (cmd === 'WATER') {
+                    playSound('click');
+                }
+
+                renderRobotGrid();
+                step++;
+            }, 600);
+        }
+
+        /* ================= LEVEL 4: REAL LIFE SEQUENCING ================= */
+        const l4CorrectSequence = [
+            { id: 1, name: 'เตรียมกระถางและใส่ดินให้พร้อม', icon: '🪴' },
+            { id: 2, name: 'หยอดเมล็ดพันธุ์ลงในดิน', icon: '🌱' },
+            { id: 3, name: 'รดน้ำให้ชุ่มชื้นพอดี', icon: '🚿' },
+            { id: 4, name: 'ยกกระถางไปวางในที่มีแสงแดด', icon: '☀️' },
+            { id: 5, name: 'เฝ้าดูและดูแลให้ดอกไม้เจริญเติบโต', icon: '🌻' }
+        ];
+
+        let l4UserSequence = [];
+
+        function initLevel4() {
+            currentStage = 'l4';
+            l4UserSequence = [...l4CorrectSequence].sort(() => Math.random() - 0.5);
+            renderLevel4Sequence();
+        }
+
+        function renderLevel4Sequence() {
+            const container = document.getElementById('l4-sequence-container');
+            container.innerHTML = '';
+
+            l4UserSequence.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'flex items-center justify-between p-3 bg-white rounded-2xl border-2 border-amber-200 shadow-sm';
+                card.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <span class="w-7 h-7 bg-amber-500 text-white font-extrabold text-xs rounded-xl flex items-center justify-center shrink-0 shadow-sm">
+                            ${idx + 1}
+                        </span>
+                        <span class="text-xl sm:text-2xl">${item.icon}</span>
+                        <span class="text-xs sm:text-sm font-extrabold text-slate-800">${item.name}</span>
+                    </div>
+
+                    <div class="flex items-center gap-1">
+                        <button onclick="moveL4Item(${idx}, -1)" ${idx === 0 ? 'disabled class="opacity-30 p-1.5 bg-slate-100 text-slate-400 rounded-lg text-xs font-bold"' : 'class="p-1.5 bg-amber-100 hover:bg-amber-200 text-amber-900 rounded-lg text-xs font-bold"'}>
+                            ⬆️ ขึ้น
+                        </button>
+                        <button onclick="moveL4Item(${idx}, 1)" ${idx === l4UserSequence.length - 1 ? 'disabled class="opacity-30 p-1.5 bg-slate-100 text-slate-400 rounded-lg text-xs font-bold"' : 'class="p-1.5 bg-amber-100 hover:bg-amber-200 text-amber-900 rounded-lg text-xs font-bold"'}>
+                            ⬇️ ลง
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function moveL4Item(idx, direction) {
+            playSound('click');
+            const targetIdx = idx + direction;
+            if (targetIdx < 0 || targetIdx >= l4UserSequence.length) return;
+
+            const temp = l4UserSequence[idx];
+            l4UserSequence[idx] = l4UserSequence[targetIdx];
+            l4UserSequence[targetIdx] = temp;
+
+            renderLevel4Sequence();
+        }
+
+        function submitLevel4Sequence() {
+            const isCorrect = l4UserSequence.every((item, i) => item.id === l4CorrectSequence[i].id);
+
+            if (isCorrect) {
+                playSound('correct');
+                addScore(2);
+                showFeedback('🏆', 'ภารกิจสำเร็จสมบูรณ์!', 'ดอกไม้ของน้องช้างงอกงามสวยงามแล้ว (+2 คะแนน)! มาดูรายงานการประเมินผลการเรียนรู้กันเลยครับ', () => {
+                    renderSummaryReport();
+                    showScreen('summary');
+                });
+            } else {
+                deductScore(0.5);
+                playSound('wrong');
+                showFeedback('❌', 'เรียงลำดับผิด หัก 0.5 คะแนน', `ลำดับขั้นตอนยังไม่ถูกต้อง (โดนหัก 0.5 คะแนน | คะแนนปัจจุบัน ${Number.isInteger(totalScore) ? totalScore : totalScore.toFixed(1)} คะแนน)\nลองทบทวน: "ใส่ดิน" ➔ "หยอดเมล็ด" ➔ "รดน้ำ" ➔ "รับแสงแดด" แล้วลองสลับปุ่มสลับตำแหน่งอีกครั้ง!`);
+            }
+        }
+
+        function renderSummaryReport() {
+            document.getElementById('resName').textContent = studentData.name;
+            document.getElementById('resClass').textContent = studentData.class;
+            document.getElementById('resNo').textContent = studentData.no;
+
+            const today = new Date();
+            const dateStr = today.toLocaleDateString('th-TH', { year: 'numeric', month: 'long', day: 'numeric' });
+            document.getElementById('resDate').textContent = dateStr;
+
+            // Display dynamic total score out of 12
+            const formattedTotal = Number.isInteger(totalScore) ? totalScore.toString() : totalScore.toFixed(1);
+            document.getElementById('resScore').textContent = formattedTotal;
+
+            // Render Detailed Score Breakdown Table
+            const p1 = stagePenalties.l1;
+            const p2 = stagePenalties.l2;
+            const p3 = stagePenalties.l3;
+            const p4 = stagePenalties.l4;
+            const pTotal = p1 + p2 + p3 + p4;
+
+            const net1 = Math.max(0, 6.0 - p1);
+            const net2 = Math.max(0, 2.0 - p2);
+            const net3 = Math.max(0, 2.0 - p3);
+            const net4 = Math.max(0, 2.0 - p4);
+
+            document.getElementById('pen-l1').textContent = `-${p1.toFixed(1)}`;
+            document.getElementById('net-l1').textContent = net1.toFixed(1);
+
+            document.getElementById('pen-l2').textContent = `-${p2.toFixed(1)}`;
+            document.getElementById('net-l2').textContent = net2.toFixed(1);
+
+            document.getElementById('pen-l3').textContent = `-${p3.toFixed(1)}`;
+            document.getElementById('net-l3').textContent = net3.toFixed(1);
+
+            document.getElementById('pen-l4').textContent = `-${p4.toFixed(1)}`;
+            document.getElementById('net-l4').textContent = net4.toFixed(1);
+
+            document.getElementById('pen-total').textContent = `-${pTotal.toFixed(1)}`;
+            document.getElementById('net-total').textContent = formattedTotal;
+
+            // Compute grade badge & evaluation text according to final score out of 12
+            const gradeBadge = document.getElementById('resGradeBadge');
+            const evalText = document.getElementById('resEvaluationText');
+
+            if (totalScore >= 10) {
+                gradeBadge.className = 'inline-block mt-2 text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full border border-emerald-300';
+                gradeBadge.textContent = '🌟 ระดับคุณภาพ: ดีเยี่ยมสมบูรณ์ (10-12 คะแนน)';
+                evalText.textContent = 'ผู้เรียนมีความสามารถในการสังเกตปัญหา วางแผนเลือกอุปกรณ์ สั่งการน้องช้าง และเรียงลำดับอัลกอริทึมได้อย่างถูกต้องแม่นยำแทบไม่มีข้อผิดพลาด';
+            } else if (totalScore >= 7) {
+                gradeBadge.className = 'inline-block mt-2 text-xs font-bold px-3 py-1 bg-sky-100 text-sky-800 rounded-full border border-sky-300';
+                gradeBadge.textContent = '👍 ระดับคุณภาพ: ดี (7-9.5 คะแนน)';
+                evalText.textContent = 'ผู้เรียนมีความรู้ความเข้าใจในขั้นตอนการแก้ปัญหา สามารถแก้ไขข้อผิดพลาด (Debugging) จนทำภารกิจได้สำเร็จ';
+            } else if (totalScore >= 4) {
+                gradeBadge.className = 'inline-block mt-2 text-xs font-bold px-3 py-1 bg-amber-100 text-amber-800 rounded-full border border-amber-300';
+                gradeBadge.textContent = '👌 ระดับคุณภาพ: ผ่านเกณฑ์ (4-6.5 คะแนน)';
+                evalText.textContent = 'ผู้เรียนสามารถทำภารกิจสำเร็จผ่านการลองผิดลองถูก และปรับแก้ไขลำดับขั้นตอนตามคำแนะนำได้';
+            } else {
+                gradeBadge.className = 'inline-block mt-2 text-xs font-bold px-3 py-1 bg-rose-100 text-rose-800 rounded-full border border-rose-300';
+                gradeBadge.textContent = '💪 ระดับคุณภาพ: ควรพยายามเพิ่มเติม (< 4 คะแนน)';
+                evalText.textContent = 'ผู้เรียนควรได้รับการฝึกฝนเพิ่มเติมในการสังเกตสถานการณ์และจัดลำดับคำสั่งเพื่อพัฒนาทักษะอัลกอริทึมต่อไป';
+            }
+        }
+
+        window.onload = function() {
+            showScreen('start');
+        };
+    </script>
+</body>
+</html>
